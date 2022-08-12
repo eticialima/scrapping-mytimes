@@ -34,10 +34,12 @@ res = []
 for card in cards_data:  
     title = card.find('h4', attrs={'class': 'product_title__11Ti1'}) # ok 
     desc = card.find('div', attrs={'class': 'product_description__19mZJ product_crop-description__1wguP'}) # ok 
+    category = card.find('div', attrs={'class': 'product_category__TORa0'}) # ok
     images = [el["src"] for el in card.find_all('img') ] # ok 
     data = { 
         "title" : title.text, 
         "description" : desc.text, 
+        "category": category.text,
         "image" : images
     }   
     res.append(data)
